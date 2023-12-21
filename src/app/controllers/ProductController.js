@@ -36,6 +36,7 @@ class ProductController {
             category_id,
             path,
             offer,
+            details,
           })
 
           return response.json(product)
@@ -68,6 +69,7 @@ class ProductController {
             price: Yup.number(),
             category_id: Yup.number(),
             offer: Yup.boolean(),
+            details: Yup.string(),
         }) 
 
         try {
@@ -103,6 +105,7 @@ class ProductController {
             category_id,
             path,
             offer,
+            details,
           },
           { where: { id } }
           
