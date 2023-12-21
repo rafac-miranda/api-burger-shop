@@ -12,6 +12,7 @@ class ProductController {
             price: Yup.number().required(),
             category_id: Yup.number().required(),
             offer: Yup.boolean(),
+            details: Yup.string(),
         }) 
 
         try {
