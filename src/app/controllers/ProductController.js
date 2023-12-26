@@ -12,6 +12,7 @@ class ProductController {
             price: Yup.number().required(),
             category_id: Yup.number().required(),
             offer: Yup.boolean(),
+            details: Yup.string(),
         }) 
 
         try {
@@ -27,7 +28,7 @@ class ProductController {
           }
 
           const { filename: path } = request.file
-          const { name, price, category_id, offer } = request.body
+          const { name, price, category_id, offer, details } = request.body
 
           const product = await Product.create({
             name,
@@ -35,6 +36,7 @@ class ProductController {
             category_id,
             path,
             offer,
+            details,
           })
 
           return response.json(product)
@@ -67,6 +69,7 @@ class ProductController {
             price: Yup.number(),
             category_id: Yup.number(),
             offer: Yup.boolean(),
+            details: Yup.string(),
         }) 
 
         try {
@@ -94,7 +97,7 @@ class ProductController {
             path = request.file.filename
           }
 
-          const { name, price, category_id, offer } = request.body
+          const { name, price, category_id, offer, details } = request.body
 
           await Product.update({
             name,
@@ -102,6 +105,7 @@ class ProductController {
             category_id,
             path,
             offer,
+            details,
           },
           { where: { id } }
           
